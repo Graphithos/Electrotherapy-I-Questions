@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Electrotherapy 1 Lecture No.6 Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px; /* Adjusted to align with author name */
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Electrotherapy 1 Lecture No.6 Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Electrotherapy 1 (Iontophoresis)</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">30</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">30</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/30</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data (all 30 questions from the PDF)
+        const quizData = [
+            {
+                question: "What is the fundamental principle of Iontophoresis?",
+                options: [
+                    "Using heat to increase blood flow",
+                    "Using magnetic fields to align ions",
+                    "Using electrical current to drive ions across the skin",
+                    "Using ultrasound to push medication through the skin"
+                ],
+                answer: 2,
+                explanation: "Using electrical current to drive ions across the skin (Page 3)"
+            },
+            {
+                question: "The clinical use of Iontophoresis is based on which fundamental physical concept?",
+                options: [
+                    "Like charges attract and opposites repel",
+                    "Like charges repel and opposites attract",
+                    "High frequency currents penetrate deeper",
+                    "Direct current is safer than alternating current"
+                ],
+                answer: 1,
+                explanation: "Like charges repel and opposites attract (Page 3)"
+            },
+            {
+                question: "To deliver a negatively charged drug ion into the tissues, which electrode should it be placed under?",
+                options: [
+                    "The cathode",
+                    "The anode",
+                    "Either electrode, as long as the current is high enough",
+                    "A ground electrode"
+                ],
+                answer: 0,
+                explanation: "The cathode (Page 4)"
+            },
+            {
+                question: "What type of electrical current do most Iontophoresis devices use?",
+                options: [
+                    "Alternating Current (AC)",
+                    "Pulsed Current",
+                    "Direct Current (DC)",
+                    "Interferential Current (IFC)"
+                ],
+                answer: 2,
+                explanation: "Direct Current (DC) (Page 4)"
+            },
+            {
+                question: "Which mechanism of Iontophoresis refers to the electrical repulsion of ions?",
+                options: [
+                    "Electroporation",
+                    "Electroosmosis",
+                    "Electromigration",
+                    "Ionohydrokinesis"
+                ],
+                answer: 2,
+                explanation: "Electromigration (Page 5)"
+            },
+            {
+                question: "What is the effect of electroporation during Iontophoresis?",
+                options: [
+                    "It neutralizes the charge of the ions.",
+                    "It increases the porosity of the superficial skin.",
+                    "It attracts water molecules to the anode.",
+                    "It decreases skin resistance permanently."
+                ],
+                answer: 1,
+                explanation: "It increases the porosity of the superficial skin. (Page 5)"
+            },
+            {
+                question: "Electroosmosis, or ionohydrokinesis, involves the bulk movement of what?",
+                options: [
+                    "Electrons through the skin",
+                    "Only positively charged ions",
+                    "Only medication molecules, not ions",
+                    "Solute and water in response to the electrical field"
+                ],
+                answer: 3,
+                explanation: "Solute and water in response to the electrical field (Page 6, 7)"
+            },
+            {
+                question: "Which ion's movement toward the cathode is a key component of electroosmosis?",
+                options: [
+                    "Chloride (Cl-)",
+                    "Zinc (Zn2+)",
+                    "Sodium (Na+)",
+                    "Calcium (Ca2+)"
+                ],
+                answer: 2,
+                explanation: "Sodium (Na+) (Page 9)"
+            },
+            {
+                question: "What is the polarity of the delivery electrode for Dexamethasone?",
+                options: [
+                    "Positive",
+                    "Negative",
+                    "Alternating",
+                    "Neutral"
+                ],
+                answer: 1,
+                explanation: "Negative (Page 12)"
+            },
+            {
+                question: "Which drug, delivered via a positive electrode, is used for its local anesthetic effects?",
+                options: [
+                    "Magnesium sulfate",
+                    "Lidocaine",
+                    "Dexamethasone",
+                    "Acetic acid"
+                ],
+                answer: 1,
+                explanation: "Lidocaine (Page 12)"
+            },
+            {
+                question: "For the treatment of skeletal muscle spasms using Magnesium sulfate, what is the polarity of the delivery electrode?",
+                options: [
+                    "Positive",
+                    "Negative",
+                    "Alternating",
+                    "It can be either positive or negative"
+                ],
+                answer: 0,
+                explanation: "Positive (Page 12)"
+            },
+            {
+                question: "What is a common treatment for Hyperhidrosis using Iontophoresis?",
+                options: [
+                    "Zinc oxide with a positive electrode",
+                    "Tap water with alternating polarity",
+                    "Salicylates with a negative electrode",
+                    "Hyaluronidase with a positive electrode"
+                ],
+                answer: 1,
+                explanation: "Tap water with alternating polarity (Page 12)"
+            },
+            {
+                question: "Which drug is indicated for dispersing local subacute or chronic edema and requires a positive delivery electrode?",
+                options: [
+                    "Calcium chloride",
+                    "Iodine",
+                    "Salicylates",
+                    "Hyaluronidase"
+                ],
+                answer: 3,
+                explanation: "Hyaluronidase (Page 12)"
+            },
+            {
+                question: "What is the believed effect of using Acetic acid for calcific tendonitis?",
+                options: [
+                    "To anesthetize the area",
+                    "To disperse edema",
+                    "To increase the solubility of calcium deposits",
+                    "To act as an antiseptic"
+                ],
+                answer: 2,
+                explanation: "To increase the solubility of calcium deposits (Page 12)"
+            },
+            {
+                question: "When placing electrodes, where should the inactive (dispersive) electrode be positioned relative to the active electrode?",
+                options: [
+                    "Directly adjacent to the active electrode",
+                    "Under the active electrode",
+                    "At a distance not less than twice the diameter of the active electrode",
+                    "On the opposite side of the body"
+                ],
+                answer: 2,
+                explanation: "At a distance not less than twice the diameter of the active electrode (Page 15)"
+            },
+            {
+                question: "The formula for Current Density (CD) is:",
+                options: [
+                    "CD = current amplitude (mA) * electrode area (cm²)",
+                    "CD = current amplitude (mA) / electrode area (cm²)",
+                    "CD = electrode area (cm²) / current amplitude (mA)",
+                    "CD = voltage (V) / current amplitude (mA)"
+                ],
+                answer: 1,
+                explanation: "CD = current amplitude (mA) / electrode area (cm²) (Page 17)"
+            },
+            {
+                question: "Why is it recommended that the cathode's electroconductive surface area often exceeds that of the anode?",
+                options: [
+                    "To minimize the risk of caustic damage from sodium hydroxide formation",
+                    "To deliver medication faster",
+                    "Because most medications are negatively charged",
+                    "To increase patient comfort at the anode"
+                ],
+                answer: 0,
+                explanation: "To minimize the risk of caustic damage from sodium hydroxide formation (Page 18)"
+            },
+            {
+                question: "What is the recommended maximum current density when the ANODE is used as the delivery electrode?",
+                options: [
+                    "0.1 mA/cm²",
+                    "0.5 mA/cm²",
+                    "1.0 mA/cm²",
+                    "4.0 mA/cm²"
+                ],
+                answer: 2,
+                explanation: "1.0 mA/cm² (Page 24)"
+            },
+            {
+                question: "What is the recommended maximum current density when the CATHODE is used as the delivery electrode?",
+                options: [
+                    "0.1 mA/cm²",
+                    "0.5 mA/cm²",
+                    "1.0 mA/cm²",
+                    "4.0 mA/cm²"
+                ],
+                answer: 1,
+                explanation: "0.5 mA/cm² (Page 24)"
+            },
+            {
+                question: "What is the general upper limit for current amplitude during Iontophoresis, as determined by patient comfort?",
+                options: [
+                    "No greater than 1 mA",
+                    "No greater than 4 mA",
+                    "No greater than 10 mA",
+                    "No greater than 20 mA"
+                ],
+                answer: 1,
+                explanation: "No greater than 4 mA (Page 25)"
+            },
+            {
+                question: "What is the typical total treatment dose range for Iontophoresis?",
+                options: [
+                    "1 to 10 mA/min",
+                    "10 to 20 mA/min",
+                    "40 to 80 mA/min",
+                    "100 to 150 mA/min"
+                ],
+                answer: 2,
+                explanation: "40 to 80 mA/min (Page 25)"
+            },
+            {
+                question: "The polarity of the active electrode should be:",
+                options: [
+                    "Always positive",
+                    "Always negative",
+                    "The opposite polarity of the active drug ion",
+                    "The same polarity as the active drug ion"
+                ],
+                answer: 3,
+                explanation: "The same polarity as the active drug ion (Page 25)"
+            },
+            {
+                question: "Which of the following is a contraindication for Iontophoresis?",
+                options: [
+                    "Muscle spasms",
+                    "Inflammation",
+                    "Presence of a pacemaker",
+                    "Hyperhidrosis"
+                ],
+                answer: 2,
+                explanation: "Presence of a pacemaker (Page 27)"
+            },
+            {
+                question: "Iontophoresis is contraindicated if:",
+                options: [
+                    "The patient has a history of hypersensitivity to the medication being administered.",
+                    "The patient has adhesive capsulitis.",
+                    "Erythema appears under the electrodes after treatment.",
+                    "A battery-operated device is used."
+                ],
+                answer: 0,
+                explanation: "The patient has a history of hypersensitivity to the medication being administered. (Page 26)"
+            },
+            {
+                question: "Which of the following is a precaution for Iontophoresis?",
+                options: [
+                    "The exact dosage of medication delivered is precisely known.",
+                    "Erythema under the electrodes is uncommon after treatment.",
+                    "A treatment dose that is too intense can result in burns.",
+                    "Electrodes can be safely reused for the same medication."
+                ],
+                answer: 2,
+                explanation: "A treatment dose that is too intense can result in burns. (Page 29)"
+            },
+            {
+                question: "Why should an electrode not be reused for Iontophoresis?",
+                options: [
+                    "It loses its stickiness.",
+                    "Medications remain in it, causing contamination.",
+                    "It increases the cost of treatment.",
+                    "It changes the polarity of the device."
+                ],
+                answer: 1,
+                explanation: "Medications remain in it, causing contamination. (Page 29)"
+            },
+            {
+                question: "What is a common skin reaction observed after an Iontophoresis treatment?",
+                options: [
+                    "Blistering",
+                    "Cyanosis",
+                    "Erythema",
+                    "Necrosis"
+                ],
+                answer: 2,
+                explanation: "Erythema (Page 29)"
+            },
+            {
+                question: "Before treatment, what must be determined regarding the patient and the medication?",
+                options: [
+                    "If the patient prefers a certain brand of electrode",
+                    "The patient's weight and height",
+                    "The color of the medication solution",
+                    "If the patient is allergic to the ion or drug"
+                ],
+                answer: 3,
+                explanation: "If the patient is allergic to the ion or drug (Page 14)"
+            },
+            {
+                question: "What is the primary role of the inactive (dispersive) electrode?",
+                options: [
+                    "To deliver the medication",
+                    "To monitor skin resistance",
+                    "To heat the tissue",
+                    "To complete the electrical circuit"
+                ],
+                answer: 3,
+                explanation: "To complete the electrical circuit (Page 15, 23)"
+            },
+            {
+                question: "What should be done immediately after an Iontophoresis treatment regarding the skin?",
+                options: [
+                    "Apply heat to the area.",
+                    "Massage the area vigorously.",
+                    "Inspect its integrity for signs of adverse effects.",
+                    "Cover it with a non-breathable bandage."
+                ],
+                answer: 2,
+                explanation: "Inspect its integrity for signs of adverse effects. (Page 16)"
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${String.fromCharCode(65 + question.answer)}) ${question.options[question.answer]}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Electrotherapy 1 (Iontophoresis).';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>

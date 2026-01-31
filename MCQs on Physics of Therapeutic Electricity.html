@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Electrotherapy 1 Lecture No. 2 Quiz</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 24px;
+        }
+        .author {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        .progress-container {
+            background: #ecf0f1;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+        }
+        .progress-bar {
+            height: 100%;
+            background: #3498db;
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .question {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .question-number {
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: #f1f8ff;
+            border-color: #a3d0fd;
+        }
+        .option.selected {
+            background: #d1ecf1;
+            border-color: #17a2b8;
+        }
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        .feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .score-value {
+            font-size: 48px;
+            color: #3498db;
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: #2ecc71;
+        }
+        .restart-btn:hover {
+            background: #27ae60;
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: #f39c12;
+        }
+        .review-btn:hover {
+            background: #e67e22;
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #e74c3c;
+            background: white;
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: #28a745;
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Electrotherapy 1 Lecture No. 2 Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Electrotherapy 1 Lecture No. 2</p>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">35</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">35</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/35</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data
+        const quizData = [
+            {
+                question: "What is the fundamental property that serves as the mechanism for living cells to communicate?",
+                options: [
+                    "Voltage",
+                    "Current",
+                    "Charge",
+                    "Resistance"
+                ],
+                answer: 2,
+                explanation: "Charge (Page 2)"
+            },
+            {
+                question: "How is electrical charge quantified?",
+                options: [
+                    "Amperes (A)",
+                    "Volts (V)",
+                    "Coulombs (C)",
+                    "Ohms (Ω)"
+                ],
+                answer: 2,
+                explanation: "Coulombs (C) (Page 3)"
+            },
+            {
+                question: "An atom or molecule that has gained or lost an electron is known as a(n):",
+                options: [
+                    "Conductor",
+                    "Insulator",
+                    "Ion",
+                    "Isotope"
+                ],
+                answer: 2,
+                explanation: "Ion (Page 6)"
+            },
+            {
+                question: "Which of the following is a fundamental property of electrical charge?",
+                options: [
+                    "Charge is neither created nor destroyed.",
+                    "Like charges attract each other.",
+                    "Charge can be created from energy.",
+                    "There is only one type of charge."
+                ],
+                answer: 0,
+                explanation: "Charge is neither created nor destroyed. (Page 7)"
+            },
+            {
+                question: "The pole of an electrode with a net negativity is called the:",
+                options: [
+                    "Anode",
+                    "Cathode",
+                    "Positrode",
+                    "Ground"
+                ],
+                answer: 1,
+                explanation: "Cathode (Page 11)"
+            },
+            {
+                question: "Which electrode pole is characterized by attracting negative ions and producing an acidic reaction?",
+                options: [
+                    "Anode",
+                    "Cathode",
+                    "Neutral electrode",
+                    "Ground electrode"
+                ],
+                answer: 0,
+                explanation: "Anode (Page 12)"
+            },
+            {
+                question: "Which pole is typically used in the proliferative stage to promote granulation and tissue repair?",
+                options: [
+                    "Anode",
+                    "Cathode",
+                    "Either anode or cathode",
+                    "A neutral pole"
+                ],
+                answer: 1,
+                explanation: "Cathode (Page 13)"
+            },
+            {
+                question: "What is the driving force that moves electrons or ions in a circuit?",
+                options: [
+                    "Current (I)",
+                    "Resistance (R)",
+                    "Charge (Q)",
+                    "Voltage (V)"
+                ],
+                answer: 3,
+                explanation: "Voltage (V) (Page 15)"
+            },
+            {
+                question: "In biological systems, voltage forces are created by the uneven distribution of:",
+                options: [
+                    "Electrons",
+                    "Charged particles (ions)",
+                    "Insulators",
+                    "Conductors"
+                ],
+                answer: 1,
+                explanation: "Charged particles (ions) (Page 15)"
+            },
+            {
+                question: "What is the unit of measurement for the rate of electron flow through a conductor?",
+                options: [
+                    "Volt (V)",
+                    "Ohm (Ω)",
+                    "Coulomb (C)",
+                    "Ampere (A)"
+                ],
+                answer: 3,
+                explanation: "Ampere (A) (Page 21)"
+            },
+            {
+                question: "According to Ohm's Law, what is the relationship between Current (I), Voltage (V), and Resistance (R)?",
+                options: [
+                    "I = V / R",
+                    "V = I * R",
+                    "R = V / I",
+                    "All of the above"
+                ],
+                answer: 3,
+                explanation: "All of the above (Page 23)"
+            },
+            {
+                question: "Resistance is inversely proportional to:",
+                options: [
+                    "The length of a conductor",
+                    "The cross-sectional area of a conductor",
+                    "The voltage applied",
+                    "The charge of the particles"
+                ],
+                answer: 1,
+                explanation: "The cross-sectional area of a conductor (Page 24)"
+            },
+            {
+                question: "Which of the following is a good conductor of electricity in the human body?",
+                options: [
+                    "Bone",
+                    "Fat",
+                    "Tendon",
+                    "Nerve"
+                ],
+                answer: 3,
+                explanation: "Nerve (Page 27)"
+            },
+            {
+                question: "Which of the following is a characteristic of an insulator?",
+                options: [
+                    "Contains free electrons in the outer orbit",
+                    "Charged particles do not move easily through it",
+                    "Has a high percentage of water",
+                    "Metals are common examples"
+                ],
+                answer: 1,
+                explanation: "Charged particles do not move easily through it (Page 19)"
+            },
+            {
+                question: "What property arises from the storage of charge in an insulator within a field of current?",
+                options: [
+                    "Resistance",
+                    "Conductance",
+                    "Capacitance",
+                    "Induction"
+                ],
+                answer: 2,
+                explanation: "Capacitance (Page 29)"
+            },
+            {
+                question: "What term describes frequency-dependent resistance to the flow of current?",
+                options: [
+                    "Conductance",
+                    "Resistance",
+                    "Impedance",
+                    "Capacitance"
+                ],
+                answer: 2,
+                explanation: "Impedance (Page 31)"
+            },
+            {
+                question: "Clinically, how is impedance at the electrode-skin interface typically decreased?",
+                options: [
+                    "By using higher voltage",
+                    "By using direct current instead of alternating current",
+                    "By using coupling agents like electroconductive gel",
+                    "By increasing the treatment time"
+                ],
+                answer: 2,
+                explanation: "By using coupling agents like electroconductive gel (Page 33)"
+            },
+            {
+                question: "Which tissue has the highest impedance?",
+                options: [
+                    "Muscle",
+                    "Nerve",
+                    "Blood",
+                    "Dry Skin"
+                ],
+                answer: 3,
+                explanation: "Dry Skin (Page 35)"
+            },
+            {
+                question: "On a current waveform graph, what does the horizontal (x) axis typically represent?",
+                options: [
+                    "Amplitude or Intensity",
+                    "Time or Duration",
+                    "Frequency",
+                    "Charge"
+                ],
+                answer: 1,
+                explanation: "Time or Duration (Page 37)"
+            },
+            {
+                question: "What type of current is defined as the continuous unidirectional flow of ions or electrons for at least 1 second?",
+                options: [
+                    "Alternating Current (AC)",
+                    "Pulsed Current (PC)",
+                    "Direct Current (DC)",
+                    "Burst Current"
+                ],
+                answer: 2,
+                explanation: "Direct Current (DC) (Page 40)"
+            },
+            {
+                question: "Low-level Direct Current (DC) is most commonly used for which clinical application?",
+                options: [
+                    "Managing chronic pain",
+                    "Iontophoresis",
+                    "Strengthening innervated muscle",
+                    "Reducing muscle spasm"
+                ],
+                answer: 1,
+                explanation: "Iontophoresis (Page 42)"
+            },
+            {
+                question: "Which type of current is defined as the uninterrupted bidirectional flow of ions or electrons?",
+                options: [
+                    "Alternating Current (AC)",
+                    "Direct Current (DC)",
+                    "Pulsed Current (PC)",
+                    "Monophasic Current"
+                ],
+                answer: 0,
+                explanation: "Alternating Current (AC) (Page 46)"
+            },
+            {
+                question: "An isolated electrical event separated from the next by a period of time is called a:",
+                options: [
+                    "Burst",
+                    "Phase",
+                    "Pulse",
+                    "Cycle"
+                ],
+                answer: 2,
+                explanation: "Pulse (Page 48)"
+            },
+            {
+                question: "The time between the end of one pulse and the start of the next pulse is called the:",
+                options: [
+                    "Phase Duration",
+                    "Pulse Duration",
+                    "Interpulse Interval",
+                    "Intrapulse Interval"
+                ],
+                answer: 2,
+                explanation: "Interpulse Interval (Page 51)"
+            },
+            {
+                question: "What is the term for the total time elapsed from the beginning to the end of a single pulse?",
+                options: [
+                    "Phase Duration",
+                    "Pulse Duration",
+                    "Interpulse Interval",
+                    "Pulse Period"
+                ],
+                answer: 1,
+                explanation: "Pulse Duration (Page 53)"
+            },
+            {
+                question: "A waveform where current flows in one direction and then in the opposite direction is classified as:",
+                options: [
+                    "Monophasic",
+                    "Biphasic",
+                    "Direct Current",
+                    "Pulsed Direct Current"
+                ],
+                answer: 1,
+                explanation: "Biphasic (Page 54)"
+            },
+            {
+                question: "Which type of pulsed current is most commonly used to promote tissue healing and manage acute edema?",
+                options: [
+                    "Alternating Current (AC)",
+                    "Biphasic Pulsed Currents",
+                    "Interrupted Direct Current",
+                    "Monophasic Pulsed Currents"
+                ],
+                answer: 3,
+                explanation: "Monophasic Pulsed Currents (Page 43)"
+            },
+            {
+                question: "High Volt Pulsed Current (HVPC) is also known as:",
+                options: [
+                    "Sinusoidal AC",
+                    "Pulsed Galvanic Current",
+                    "Faradic Current",
+                    "Interferential Current"
+                ],
+                answer: 1,
+                explanation: "Pulsed Galvanic Current (Page 44)"
+            },
+            {
+                question: "Which electrode polarity is generally selected to facilitate membrane depolarization for muscle contraction?",
+                options: [
+                    "Anode (+)",
+                    "Either anode or cathode",
+                    "Cathode (-)",
+                    "A neutral electrode"
+                ],
+                answer: 2,
+                explanation: "Cathode (-) (Page 14)"
+            },
+            {
+                question: "The generation of two or more consecutive pulses separated from the next series is termed a:",
+                options: [
+                    "Pulse",
+                    "Phase",
+                    "Burst",
+                    "Cycle"
+                ],
+                answer: 2,
+                explanation: "Burst (Page 49)"
+            },
+            {
+                question: "The frequency of the underlying waveform within a burst is called the:",
+                options: [
+                    "Burst Frequency",
+                    "Pulse Frequency",
+                    "Carrier Frequency",
+                    "Modulation Frequency"
+                ],
+                answer: 2,
+                explanation: "Carrier Frequency (Page 49)"
+            },
+            {
+                question: "What is the primary purpose of an intrapulse interval?",
+                options: [
+                    "To increase the total charge delivered",
+                    "To allow for physiologic adaptations to the current",
+                    "To decrease patient comfort",
+                    "To reverse the direction of current flow"
+                ],
+                answer: 1,
+                explanation: "To allow for physiologic adaptations to the current (Page 51)"
+            },
+            {
+                question: "Higher voltages generally result in:",
+                options: [
+                    "Deeper penetration",
+                    "Lower current intensity",
+                    "Increased skin resistance",
+                    "More superficial effects"
+                ],
+                answer: 0,
+                explanation: "Deeper penetration (Page 18)"
+            },
+            {
+                question: "The Pulse Period is defined as:",
+                options: [
+                    "Pulse Duration (PD) only",
+                    "Inter-pulse Interval (IPI) only",
+                    "Pulse Duration (PD) + Inter-pulse Interval (IPI)",
+                    "Phase Duration x 2"
+                ],
+                answer: 2,
+                explanation: "Pulse Duration (PD) + Inter-pulse Interval (IPI) (Page 53)"
+            },
+            {
+                question: "Which of the following is a high conducting material?",
+                options: [
+                    "Inner layer of skin",
+                    "Outer layer of skin",
+                    "Cartilage",
+                    "Ligaments"
+                ],
+                answer: 0,
+                explanation: "Inner layer of skin (Page 53)"
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${String.fromCharCode(65 + question.answer)}) ${question.options[question.answer]}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Electrotherapy 1 Lecture No. 2.';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.addEventListener('load', initQuiz);
+    </script>
+</body>
+</html>

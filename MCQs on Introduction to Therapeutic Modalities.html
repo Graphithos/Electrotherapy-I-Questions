@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Electrotherapy 1 Lecture No. 1 Quiz</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 24px;
+        }
+        .author {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        .progress-container {
+            background: #ecf0f1;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+        }
+        .progress-bar {
+            height: 100%;
+            background: #3498db;
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .question {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .question-number {
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: #f1f8ff;
+            border-color: #a3d0fd;
+        }
+        .option.selected {
+            background: #d1ecf1;
+            border-color: #17a2b8;
+        }
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        .feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .score-value {
+            font-size: 48px;
+            color: #3498db;
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: #2ecc71;
+        }
+        .restart-btn:hover {
+            background: #27ae60;
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: #f39c12;
+        }
+        .review-btn:hover {
+            background: #e67e22;
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #e74c3c;
+            background: white;
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: #28a745;
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Electrotherapy 1 Lecture No. 1 Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Electrotherapy 1 Lecture No. 1</p>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">30</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">30</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/30</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data
+        const quizData = [
+            {
+                question: "What is the definition of a \"physical agent\"?",
+                options: [
+                    "A form of stress applied to elicit a voluntary physiological response.",
+                    "The administration of energies specifically for therapeutic effects.",
+                    "The introduction of physical energy into a biological system to cause physiological changes.",
+                    "The use of electromagnetic energy for pain modulation."
+                ],
+                answer: 2,
+                explanation: "The introduction of physical energy into a biological system to cause physiological changes. (Page 4)"
+            },
+            {
+                question: "What is the difference between \"therapeutic modalities\" and \"physical agents\"?",
+                options: [
+                    "They are completely different concepts with no overlap.",
+                    "\"Physical agents\" refers to the energies used, while \"therapeutic modalities\" includes the purpose of providing therapeutic benefits.",
+                    "\"Therapeutic modalities\" is an outdated term for \"physical agents\".",
+                    "\"Physical agents\" include the intention of application, while \"therapeutic modalities\" do not."
+                ],
+                answer: 1,
+                explanation: "\"Physical agents\" refers to the energies used, while \"therapeutic modalities\" includes the purpose of providing therapeutic benefits. (Page 7)"
+            },
+            {
+                question: "What is a primary physiological effect of cryotherapy?",
+                options: [
+                    "Increased blood flow and tissue metabolism",
+                    "Desensitization of peripheral afferent nociceptors",
+                    "Facilitation of collagen elongation",
+                    "Increased muscle spasms"
+                ],
+                answer: 1,
+                explanation: "Desensitization of peripheral afferent nociceptors (Page 8)"
+            },
+            {
+                question: "Which modality is best suited for raising temperature in deeper tissues (up to 5 cm)?",
+                options: [
+                    "Warm water",
+                    "Hot packs",
+                    "Continuous-wave ultrasound",
+                    "Cryotherapy"
+                ],
+                answer: 2,
+                explanation: "Continuous-wave ultrasound (Page 10)"
+            },
+            {
+                question: "What is the primary therapeutic intention behind applying mechanical compression?",
+                options: [
+                    "To increase joint mobility",
+                    "To separate adjacent spinal segments",
+                    "To prevent, attenuate, or reverse swelling",
+                    "To directly strengthen muscle tissue"
+                ],
+                answer: 2,
+                explanation: "To prevent, attenuate, or reverse swelling (Page 13)"
+            },
+            {
+                question: "Traction is defined as the application of distractive forces to achieve which of the following?",
+                options: [
+                    "Reduce pressure on nerves and blood vessels",
+                    "Increase local blood flow",
+                    "Elevate tissue metabolism",
+                    "Promote platelet aggregation"
+                ],
+                answer: 0,
+                explanation: "Reduce pressure on nerves and blood vessels (Page 15)"
+            },
+            {
+                question: "The body's reaction to acute injury is initially divided into two components. What are they?",
+                options: [
+                    "Inflammation and proliferation",
+                    "Tissue destruction from trauma and cell death from oxygen blockage",
+                    "Hemostasis and maturation",
+                    "Microtrauma and macrotrauma"
+                ],
+                answer: 1,
+                explanation: "Tissue destruction from trauma and cell death from oxygen blockage (Page 23)"
+            },
+            {
+                question: "Which phase of healing is described as \"crucial\" because without it, no tissue healing is possible?",
+                options: [
+                    "Hemostasis phase",
+                    "Proliferative phase",
+                    "Maturation phase",
+                    "Inflammatory phase"
+                ],
+                answer: 3,
+                explanation: "Inflammatory phase (Page 25)"
+            },
+            {
+                question: "During which phase of healing does angiogenesis and collagen deposition occur?",
+                options: [
+                    "Hemostasis",
+                    "Inflammation",
+                    "Proliferation",
+                    "Maturation"
+                ],
+                answer: 2,
+                explanation: "Proliferation (Page 32)"
+            },
+            {
+                question: "What is the primary cellular activity during the maturation phase of healing?",
+                options: [
+                    "Phagocytosis of debris by white blood cells",
+                    "Formation of a fibrin mesh and blood clot",
+                    "Realignment of collagen along tension lines",
+                    "Rapid division of epithelial cells"
+                ],
+                answer: 2,
+                explanation: "Realignment of collagen along tension lines (Page 36)"
+            },
+            {
+                question: "Which type of cells are responsible for wound contraction by gripping the wound edges and contracting?",
+                options: [
+                    "Platelets",
+                    "Fibroblasts",
+                    "Myofibroblasts",
+                    "Endothelial cells"
+                ],
+                answer: 2,
+                explanation: "Myofibroblasts (Page 35)"
+            },
+            {
+                question: "Which tissues have the best healing capacity?",
+                options: [
+                    "Tendons and ligaments",
+                    "Articular cartilage and peripheral nerves",
+                    "Skin, bone, and skeletal muscle",
+                    "None of the above"
+                ],
+                answer: 2,
+                explanation: "Skin, bone, and skeletal muscle (Page 27)"
+            },
+            {
+                question: "Which of the following is a factor that impedes tissue healing?",
+                options: [
+                    "Comorbidities",
+                    "Younger age",
+                    "Proper nutrition",
+                    "Active lifestyle"
+                ],
+                answer: 0,
+                explanation: "Comorbidities (Page 44)"
+            },
+            {
+                question: "According to the Gate Control Theory of pain, stimulating which nerve fibers can block noxious stimuli?",
+                options: [
+                    "A-delta fibers",
+                    "C fibers",
+                    "Nociceptors",
+                    "A-beta fibers"
+                ],
+                answer: 3,
+                explanation: "A-beta fibers (Page 46)"
+            },
+            {
+                question: "The analgesic effect of cryotherapy offers what kind of benefit to the patient after injury?",
+                options: [
+                    "Proliferative",
+                    "Palliative",
+                    "Strengthening",
+                    "Extensibility"
+                ],
+                answer: 1,
+                explanation: "Palliative (Page 51)"
+            },
+            {
+                question: "During the inflammatory stage, how does cryotherapy primarily provide support?",
+                options: [
+                    "By increasing local blood flow",
+                    "By facilitating collagen production",
+                    "By decreasing local blood flow and metabolic activity",
+                    "By promoting muscle contraction"
+                ],
+                answer: 2,
+                explanation: "By decreasing local blood flow and metabolic activity (Page 50)"
+            },
+            {
+                question: "The use of compression in the inflammatory phase helps to minimize what?",
+                options: [
+                    "Collagen realignment",
+                    "Leakage of large blood proteins into the interstitial space",
+                    "Nerve conduction velocity",
+                    "Muscle strength"
+                ],
+                answer: 1,
+                explanation: "Leakage of large blood proteins into the interstitial space (Page 52)"
+            },
+            {
+                question: "Heating collagen tissue with which modality complements stretching during the maturation stage?",
+                options: [
+                    "Cryotherapy",
+                    "Compression",
+                    "Ultrasound",
+                    "Low-level laser therapy"
+                ],
+                answer: 2,
+                explanation: "Ultrasound (Page 56)"
+            },
+            {
+                question: "What is the primary rationale for using thermotherapy before stretching to increase Range of Motion (ROM)?",
+                options: [
+                    "It decreases motor nerve conduction velocity.",
+                    "It facilitates elongation and deformation of collagen fibers.",
+                    "It attenuates disuse atrophy.",
+                    "It blocks A-delta fiber transmission."
+                ],
+                answer: 1,
+                explanation: "It facilitates elongation and deformation of collagen fibers. (Page 58)"
+            },
+            {
+                question: "Which measurement would be most appropriate for assessing swelling?",
+                options: [
+                    "Goniometric measures",
+                    "Circumference, and volumetrics",
+                    "Strength tests",
+                    "Visual analog scale"
+                ],
+                answer: 1,
+                explanation: "Circumference, and volumetrics (Page 60)"
+            },
+            {
+                question: "For a patient with compromised integumentary tissue (a wound), which modality can increase the rate of healing?",
+                options: [
+                    "Electrical stimulation",
+                    "Biofeedback",
+                    "Diathermy",
+                    "Cryotherapy"
+                ],
+                answer: 0,
+                explanation: "Electrical stimulation (Page 60)"
+            },
+            {
+                question: "Why is pregnancy generally a contraindication for many physical agents?",
+                options: [
+                    "They always cause immediate muscle contractions.",
+                    "The energy or physiological effects may reach and affect the fetus.",
+                    "They are ineffective during pregnancy.",
+                    "They always increase core body temperature to dangerous levels."
+                ],
+                answer: 1,
+                explanation: "The energy or physiological effects may reach and affect the fetus. (Page 61)"
+            },
+            {
+                question: "Why is malignancy a contraindication for the application of some physical agents?",
+                options: [
+                    "They have no effect on malignant tissue.",
+                    "They can immediately destroy all malignant cells.",
+                    "The energy may reach malignant tissue and accelerate its growth or metastasis.",
+                    "They are only effective on benign tumors."
+                ],
+                answer: 2,
+                explanation: "The energy may reach malignant tissue and accelerate its growth or metastasis. (Page 62)"
+            },
+            {
+                question: "The use of a physical agent is generally contraindicated near a pacemaker because:",
+                options: [
+                    "The agent will always cause immediate battery failure.",
+                    "The energy produced may alter the functioning of the device.",
+                    "Pacemakers are immune to all external energies.",
+                    "It enhances the pacemaker's signal."
+                ],
+                answer: 1,
+                explanation: "The energy produced may alter the functioning of the device. (Page 64)"
+            },
+            {
+                question: "Why is impaired sensation a contraindication or precaution for many physical agents?",
+                options: [
+                    "The patient's feel is often the end limit for safe application.",
+                    "Sensation is not relevant to modality application.",
+                    "It enhances the therapeutic effect.",
+                    "It only applies to electrical modalities."
+                ],
+                answer: 0,
+                explanation: "The patient's feel is often the end limit for safe application. (Page 65)"
+            },
+            {
+                question: "What happens if the intensity of a therapeutic modality is too low?",
+                options: [
+                    "Further injury occurs.",
+                    "The healing process is accelerated.",
+                    "It is always safer than a high intensity.",
+                    "Little or no benefit is gained."
+                ],
+                answer: 3,
+                explanation: "Little or no benefit is gained. (Page 21)"
+            },
+            {
+                question: "Macrotrauma is caused by:",
+                options: [
+                    "High stress over short period of time",
+                    "Low stress over short period of time",
+                    "High stress over Long period of time",
+                    "Low stress over Long period of time"
+                ],
+                answer: 0,
+                explanation: "High stress over short period of time (Page 20)"
+            },
+            {
+                question: "What is the primary goal of all therapeutic interventions?",
+                options: [
+                    "To completely replace the body's innate healing capacity.",
+                    "To minimize adverse effects of pathology while promoting tissue repair.",
+                    "To focus solely on pain modulation.",
+                    "To ensure healing occurs without any scar tissue formation."
+                ],
+                answer: 1,
+                explanation: "To minimize adverse effects of pathology while promoting tissue repair. (Page 42)"
+            },
+            {
+                question: "During hemostasis, what substance forms a mesh that acts as \"glue\" to bind platelets?",
+                options: [
+                    "Collagen",
+                    "Fibrin",
+                    "Fibronectin",
+                    "Proteoglycan"
+                ],
+                answer: 1,
+                explanation: "Fibrin (Page 29)"
+            },
+            {
+                question: "What is released during inflammation that causes the migration and division of cells in the subsequent proliferative phase?",
+                options: [
+                    "Fibrin",
+                    "Myofibroblasts",
+                    "Mature collagen",
+                    "Platelet-derived growth factors"
+                ],
+                answer: 3,
+                explanation: "Platelet-derived growth factors (Page 31)"
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${String.fromCharCode(65 + question.answer)}) ${question.options[question.answer]}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Electrotherapy 1 Lecture No. 1.';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.addEventListener('load', initQuiz);
+    </script>
+</body>
+</html>

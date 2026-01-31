@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Electrotherapy 1 Lecture No. 9 Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px; /* Adjusted to align with author name */
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Electrotherapy 1 Lecture No. 9 Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Electrotherapy 1 (Microcurrent & HVPC Therapy)</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">35</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">35</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/35</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data (35 questions from the PDF)
+        const quizData = [
+            {
+                question: "What is the defining characteristic of Microcurrent Electrical Therapy (MET) regarding stimulus intensity?",
+                options: [
+                    "It uses a stimulus intensity greater than 1 milliamp.",
+                    "It uses a stimulus intensity less than 1 milliamp.",
+                    "It operates at a motor-level stimulation.",
+                    "It uses high-frequency alternating current."
+                ],
+                answer: 1,
+                explanation: "B) It uses a stimulus intensity less than 1 milliamp (1000 microamps). (Page 2)"
+            },
+            {
+                question: "At what level does Microcurrent therapy act?",
+                options: [
+                    "Motor level",
+                    "Noxious level",
+                    "Sub-sensory or very low sensory level",
+                    "High sensory level"
+                ],
+                answer: 2,
+                explanation: "C) Sub-sensory or very low sensory level (Page 2)"
+            },
+            {
+                question: "The magnitude of endogenous electric fields that drive cell migration during wound healing is approximately:",
+                options: [
+                    "50 μA/cm²",
+                    "5 mA/cm²",
+                    "5 μA/cm²",
+                    "100 μA/cm²"
+                ],
+                answer: 2,
+                explanation: "C) 5 μA/cm² (Page 3)"
+            },
+            {
+                question: "Which of the following is a cellular/molecular effect of Microcurrent therapy?",
+                options: [
+                    "Improved blood flow",
+                    "Enhanced Cellular Energy (ATP) Production",
+                    "Modulated inflammation",
+                    "Antibacterial effects"
+                ],
+                answer: 1,
+                explanation: "B) Enhanced Cellular Energy (ATP) Production (Page 4)"
+            },
+            {
+                question: "During the inflammatory/infected phase of wound healing, which electrode polarity is recommended for its antibacterial/immune effects?",
+                options: [
+                    "Negative electrode (Cathode)",
+                    "Positive electrode (Anode)",
+                    "Alternating polarity",
+                    "Biphasic waveform"
+                ],
+                answer: 0,
+                explanation: "A) Negative electrode (Cathode) (Page 5)"
+            },
+            {
+                question: "The primary immune cells attracted to the wound bed by the negative electrode (cathode) through galvanotaxis are:",
+                options: [
+                    "Lymphocytes and eosinophils",
+                    "Neutrophils and macrophages",
+                    "Basophils and mast cells",
+                    "Plasma cells and monocytes"
+                ],
+                answer: 1,
+                explanation: "B) Neutrophils and macrophages (Page 5)"
+            },
+            {
+                question: "Which cell type, when stimulated by microcurrent, is crucial for synthesizing Extracellular Matrix (ECM) components like collagen?",
+                options: [
+                    "Keratinocytes",
+                    "Endothelial cells",
+                    "Fibroblasts",
+                    "Macrophages"
+                ],
+                answer: 2,
+                explanation: "C) Fibroblasts (Page 6)"
+            },
+            {
+                question: "Microcurrent therapy promotes the migration and reproduction of keratinocytes and endothelial cells, which is vital for:",
+                options: [
+                    "Phagocytosis and debridement",
+                    "ATP production and protein synthesis",
+                    "Inflammation modulation and edema reduction",
+                    "Re-epithelialization and angiogenesis"
+                ],
+                answer: 3,
+                explanation: "D) Re-epithelialization and angiogenesis (Page 6)"
+            },
+            {
+                question: "Microcurrent Point Stimulation (MPS) therapy uses a pen-sized device to deliver concentrated low-level:",
+                options: [
+                    "Alternating Current (AC)",
+                    "Biphasic Pulsed Current",
+                    "Direct Current (DC) micro-current",
+                    "Russian Current"
+                ],
+                answer: 2,
+                explanation: "C) Direct Current (DC) micro-current (Page 8)"
+            },
+            {
+                question: "The primary goal of Microcurrent Point Stimulation (MPS) is to:",
+                options: [
+                    "Provide strong sensory stimulation for pain relief",
+                    "Regulate the autonomic nervous system and relax muscles",
+                    "Induce muscle contractions for strengthening",
+                    "Deliver high-voltage pulses for deep penetration"
+                ],
+                answer: 1,
+                explanation: "B) Regulate the autonomic nervous system and relax muscles (Page 8)"
+            },
+            {
+                question: "For wound healing using microcurrent, what is the recommended frequency range?",
+                options: [
+                    "50-100 Hz",
+                    "20-50 Hz",
+                    "1-5 Hz",
+                    "80-120 Hz"
+                ],
+                answer: 2,
+                explanation: "C) 1-5 Hz (Page 9)"
+            },
+            {
+                question: "During which phase of wound healing is the positive electrode (anode) typically applied?",
+                options: [
+                    "Proliferation/Granulation phase",
+                    "Inflammatory/Infected phase",
+                    "Hemostatic phase",
+                    "Remodeling phase"
+                ],
+                answer: 0,
+                explanation: "A) Proliferation/Granulation phase (Page 9)"
+            },
+            {
+                question: "Compared to TENS, a key distinguishing feature of Microcurrent therapy is its:",
+                options: [
+                    "Use of milliampere current intensity",
+                    "Strong, noticeable tingling sensation",
+                    "Sub-sensory nature and focus on cellular healing",
+                    "Primary reliance on the Gate Control Theory"
+                ],
+                answer: 2,
+                explanation: "C) Sub-sensory nature and focus on cellular healing (Page 10)"
+            },
+            {
+                question: "Microcurrent therapy promotes an increase in ATP production by up to:",
+                options: [
+                    "100%",
+                    "200%",
+                    "500%",
+                    "1000%"
+                ],
+                answer: 2,
+                explanation: "C) 500% (Page 10)"
+            },
+            {
+                question: "In cosmetic applications, which of the following is NOT a visible benefit of Microcurrent therapy?",
+                options: [
+                    "Facial contour improvement",
+                    "Reduction of fine lines and wrinkles",
+                    "Reduction of puffiness and edema",
+                    "Induction of muscle hypertrophy"
+                ],
+                answer: 3,
+                explanation: "D) Induction of muscle hypertrophy (Page 11)"
+            },
+            {
+                question: "Which waveform in microcurrent therapy is associated with a 'longer lifting' effect?",
+                options: [
+                    "Sine wave",
+                    "Square wave",
+                    "Rectangular wave",
+                    "Sawtooth (Ramp) wave"
+                ],
+                answer: 3,
+                explanation: "D) Sawtooth (Ramp) wave (Page 12)"
+            },
+            {
+                question: "Which of the following is a contraindication for microcurrent therapy?",
+                options: [
+                    "Acute inflammation",
+                    "Superficial wound healing",
+                    "Pain of unknown origin or undiagnosed pain",
+                    "Sprains and strains"
+                ],
+                answer: 2,
+                explanation: "C) Pain of unknown origin or undiagnosed pain (Page 15)"
+            },
+            {
+                question: "High Voltage Pulsed Galvanic Current (HVPC) is characterized by:",
+                options: [
+                    "Low voltage with high frequency",
+                    "High voltage with low frequency and low pulse duration",
+                    "Medium voltage with sinusoidal waveform",
+                    "Interferential frequencies"
+                ],
+                answer: 1,
+                explanation: "B) High voltage with low frequency and low pulse duration (Page 17)"
+            },
+            {
+                question: "What is the typical pulse duration range for HVPC?",
+                options: [
+                    "1-10 milliseconds",
+                    "5-200 microseconds",
+                    "200-500 milliseconds",
+                    "500-1000 microseconds"
+                ],
+                answer: 1,
+                explanation: "B) 5-200 microseconds (Page 18)"
+            },
+            {
+                question: "What is the typical voltage range for HVPC?",
+                options: [
+                    "Up to 50 V",
+                    "Up to 150 V",
+                    "Up to 500 V",
+                    "Up to 1000 V"
+                ],
+                answer: 2,
+                explanation: "C) Up to 500 V (Page 18)"
+            },
+            {
+                question: "Why is HVPC considered safer and more comfortable than faradic current for patients?",
+                options: [
+                    "Because of its very short pulse duration.",
+                    "Because it uses a higher frequency.",
+                    "Because of its long pulse duration.",
+                    "Because it is always applied at a sub-sensory level."
+                ],
+                answer: 0,
+                explanation: "A) Because of its very short pulse duration. (Page 20)"
+            },
+            {
+                question: "A key characteristic of HVPC is its ability to:",
+                options: [
+                    "Stimulate denervated muscles effectively",
+                    "Penetrate deeper than low-voltage currents",
+                    "Produce significant chemical effects under the electrodes",
+                    "Primarily stimulate sensory nerves over motor nerves"
+                ],
+                answer: 1,
+                explanation: "B) Penetrate deeper than low-voltage currents (Page 20, 22)"
+            },
+            {
+                question: "HVPC does not produce contraction in denervated muscle because:",
+                options: [
+                    "The voltage is too low.",
+                    "The frequency is too high.",
+                    "The pulse duration is too short to depolarize the muscle membrane.",
+                    "It uses an alternating current waveform."
+                ],
+                answer: 2,
+                explanation: "C) The pulse duration is too short to depolarize the muscle membrane. (Page 21)"
+            },
+            {
+                question: "Which physiological effect is NOT a main indication for HVPC?",
+                options: [
+                    "Muscle stimulation for innervated muscles",
+                    "Pain modulation",
+                    "Edema reduction",
+                    "Increasing bone density in osteoporosis"
+                ],
+                answer: 3,
+                explanation: "D) Increasing bone density in osteoporosis (Page 23)"
+            },
+            {
+                question: "For pain modulation using HVPC, what frequency is recommended for acute pain?",
+                options: [
+                    "1-20 pps (Hz)",
+                    "80-120 pps (Hz)",
+                    "150-200 pps (Hz)",
+                    "5-10 pps (Hz)"
+                ],
+                answer: 1,
+                explanation: "B) 80-120 pps (Hz) (Page 24, 25)"
+            },
+            {
+                question: "For chronic pain modulation with HVPC, which polarity is typically used?",
+                options: [
+                    "Positive (+)",
+                    "Negative (-)",
+                    "Alternating",
+                    "It does not depend on polarity"
+                ],
+                answer: 1,
+                explanation: "B) Negative (-) (Page 25)"
+            },
+            {
+                question: "For edema reduction using HVPC, where should the negative electrode typically be placed?",
+                options: [
+                    "Proximally",
+                    "On the contralateral limb",
+                    "Distally or on the edematous site",
+                    "On the spinal nerve root"
+                ],
+                answer: 2,
+                explanation: "C) Distally or on the edematous site (Page 27)"
+            },
+            {
+                question: "What is the recommended frequency for HVPC application to reduce post-traumatic edema?",
+                options: [
+                    "10-20 pps (Hz)",
+                    "40-60 pps (Hz)",
+                    "80 pps (Hz)",
+                    "120 pps (Hz)"
+                ],
+                answer: 3,
+                explanation: "D) 120 pps (Hz) (Page 27)"
+            },
+            {
+                question: "For wound healing with HVPC, what is the recommended treatment duration per session?",
+                options: [
+                    "10-20 minutes",
+                    "20-30 minutes",
+                    "30-60 minutes",
+                    "60-90 minutes"
+                ],
+                answer: 2,
+                explanation: "C) 30-60 minutes (Page 26)"
+            },
+            {
+                question: "When treating an infected wound with HVPC, what is the recommended frequency of treatment?",
+                options: [
+                    "Daily",
+                    "Every other day",
+                    "Twice a week",
+                    "Once a week"
+                ],
+                answer: 0,
+                explanation: "A) Daily (Page 26)"
+            },
+            {
+                question: "The primary goal of TENS is symptomatic pain relief via the Gate Control Theory, while the primary goal of Microcurrent therapy is:",
+                options: [
+                    "Muscle strengthening",
+                    "Cellular healing and tissue repair",
+                    "Deep penetration for joint mobilization",
+                    "Induction of muscle contractions"
+                ],
+                answer: 1,
+                explanation: "B) Cellular healing and tissue repair (Page 10)"
+            },
+            {
+                question: "Which therapy is characterized by a waveform that is typically unidirectional (DC) or monophasic?",
+                options: [
+                    "TENS",
+                    "Faradic",
+                    "Microcurrent Therapy",
+                    "Interferential Therapy"
+                ],
+                answer: 2,
+                explanation: "C) Microcurrent Therapy (Page 10)"
+            },
+            {
+                question: "Both HVPC and Microcurrent therapy can be used for wound healing. However, HVPC for wound healing typically uses a frequency of:",
+                options: [
+                    "1-5 Hz",
+                    "120 pps (Hz)",
+                    "80 pps (Hz)",
+                    "100 pps (Hz)"
+                ],
+                answer: 3,
+                explanation: "D) 100 pps (Hz) (Page 26)"
+            },
+            {
+                question: "A patient with a clean, non-infected pressure ulcer is being treated with HVPC. What is the recommended frequency of treatment?",
+                options: [
+                    "Daily",
+                    "Every other day",
+                    "Three times per week",
+                    "Once a week"
+                ],
+                answer: 1,
+                explanation: "B) Every other day (Page 26)"
+            },
+            {
+                question: "A common contraindication listed for electrical stimulation therapies like microcurrent is:",
+                options: [
+                    "Osteomyelitis",
+                    "Acute sprain",
+                    "Chronic low back pain",
+                    "Post-surgical edema"
+                ],
+                answer: 0,
+                explanation: "A) Osteomyelitis (Page 15)"
+            }
+        ];
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${String.fromCharCode(65 + question.answer)}) ${question.options[question.answer]}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Electrotherapy 1 (Microcurrent & HVPC Therapy).';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${String.fromCharCode(65 + item.userAnswer)}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${String.fromCharCode(65 + item.correctAnswer)}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>
